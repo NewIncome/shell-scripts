@@ -1,0 +1,43 @@
+Shell Scripting
+---------------
+
+1. Create a file with *.sh extension
+2. Write commands. Begin file with:
+  #!/usr/bin/bash
+  greeting=Hello; name=World
+  echo "Hello World"
+  echo $greeting $name
+3. Provide execution rights for user. Adds +x to user u
+  $ chmod u+x hello_world.sh
+4. Run the script
+  $ ./hello_world.sh      #or
+  bash hello_world.sh
+
+• To read user input
+  $ read variable_name
+• To prompt the user with a custom message, use -p flag
+  $ read -p "Enter your age" variable_name
+• 
+
+◉ Conditional Statements
+if [[ condition ]]
+then
+    statement
+elif [[ condition ]]; then
+    statement 
+else
+    default statement
+fi
+
+◉ to check if an app is installed, inside an if
+if dpkg -l | grep vim   # Option works well
+  or
+if [ `command -v vim` ]
+#* With the [] the expression is just evaluated , not shown results in terminal
+  or
+if [ $? -eq 0 ]; then
+#* This checks the status of the last command
+
+
+
+◉  ⦿  ⦾  ⁌  ⁍  ○  ◘  ◙  ❥
