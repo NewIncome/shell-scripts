@@ -1,6 +1,8 @@
+#!/bin/bash
 # Install VIM + customConfig + ZSH + OhMyZsh
 
 # 1- Install VIM
+echo -e "\n -- Installing VIM ... --\n"; echo
 if sudo apt install vim
 then
   echo -e "\n -- Installed VIM correctly! --\n"
@@ -46,7 +48,7 @@ fi
 
 # 6- Install vim PlugIns
 vim -c 'PlugInstall' -c 'qa'
-if [ $? -eq 0 ]; then   
+if [ $? -eq 0 ]; then
   echo -e "\n -- Plugins for vim installed correctly! --\n"
 else
   echo -e "\n -- Error installing Plugins for vim --\n"

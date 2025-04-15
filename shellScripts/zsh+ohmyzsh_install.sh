@@ -6,7 +6,13 @@ echo -e " -- Updating package list... --\n"
 sudo apt update
 
 echo -e "\n -- Installing Zsh... --\n"
-sudo apt install -y zsh
+if sudo apt install -y zsh
+then
+  echo -e "\n -- Installed ZSH correctly! --\n"
+else
+  echo "\n -- Error installing ZSH --\n"
+  exit
+fi
 
 # Change the default shell to Zsh
 echo -e "\n -- Changing default shell to Zsh... --\n"
@@ -14,7 +20,13 @@ chsh -s $(which zsh)
 
 # Install Oh My Zsh
 echo -e "\n -- Installing Oh My Zsh... \n"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &&
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [ $? -eq 0 ]; then
+  echo -e "\n -- Installed Oh-My-Zsh correctly! --\n"
+else
+  echo "\n -- Error installing Oh-My-Zsh --\n"
+  exit
+fi
 
 # Optional: Install a theme (e.g., Powerlevel10k)
 #echo -e " -- Installing Powerlevel10k theme... --\n"
